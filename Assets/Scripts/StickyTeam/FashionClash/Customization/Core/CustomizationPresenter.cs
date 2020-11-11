@@ -8,30 +8,34 @@ namespace Assets.Scripts.StickyTeam.FashionClash.Customization.Core
     public class CustomizationPresenter
     {
         CustomizationView _view;
-        List<Category> _categories;
+        CategoryRepository _categoryRepository;
+        NavigatorGateway _navigator;
 
-        Category _selectedCategory;
-        Item _selectedItem;
-
-        public CustomizationPresenter(CustomizationView view, List<Category> categories)
+        public CustomizationPresenter(CustomizationView view, NavigatorGateway navigator, CategoryRepository categoryRepository)
         {
+            _categoryRepository = categoryRepository;
             _view = view;
-            _categories = categories;
+            _navigator = navigator;
 
+            _view.OnEnable.Subscribe(DisplayCategories);
             _view.CategorySelected.Subscribe(DisplayItems);
             _view.ItemSelected.Subscribe(EquipItem);
+            _view.OnComplete.Subscribe(_ => _navigator.GoToNextStep());
         }
 
-        public void DisplayItems(string id)
+        public void DisplayCategories(Unit unit)
         {
-            _selectedCategory = _categories.First(x => x.Id == id);
-            _view.DisplayItems(_selectedCategory.Items);
+            _categoryRepository.GetAll().First().Subscribe(_view.DisplayCategories);
         }
 
-        private void EquipItem(string id)
+        public void DisplayItems(Category category)
         {
-            _selectedItem = _selectedCategory.Items.First(x => x.Id == id);
-            _view.EquipItem(_selectedItem);
+            _view.DisplayItems(category.Items);
+        }
+
+        private void EquipItem(Item item)
+        {
+            _view.EquipItem(item);
         }
 
     }
