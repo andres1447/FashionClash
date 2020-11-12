@@ -272,12 +272,18 @@
             <e p="FashionClash" t="Include">
               <e p="Customization" t="Include">
                 <e p="Core" t="Include">
-                  <e p="Category.cs" t="Include" />
-                  <e p="CategoryRepository.cs" t="Include" />
+                  <e p="Actions" t="Include">
+                    <e p="PurchaseItem.cs" t="Include" />
+                  </e>
                   <e p="CustomizationPresenter.cs" t="Include" />
                   <e p="CustomizationView.cs" t="Include" />
+                  <e p="Domain" t="Include">
+                    <e p="Category.cs" t="Include" />
+                    <e p="CategoryRepository.cs" t="Include" />
+                    <e p="Item.cs" t="Include" />
+                    <e p="WalletGateway.cs" t="Include" />
+                  </e>
                   <e p="FashionClash.Customization.asmdef" t="Include" />
-                  <e p="Item.cs" t="Include" />
                   <e p="NavigatorGateway.cs" t="Include" />
                 </e>
                 <e p="Infrastructure" t="Include">
@@ -290,7 +296,7 @@
                   <e p="UnitySelectableWidget.cs" t="Include" />
                   <e p="UnitySelectableWidgetListExtensions.cs" t="Include" />
                 </e>
-                <e p="Tests" t="Include">
+                <e p="Test" t="Include">
                   <e p="CustomizationPresenterShould.cs" t="Include" />
                   <e p="FashionClash.Customization.Tests.asmdef" t="Include" />
                 </e>
@@ -301,7 +307,7 @@
       </e>
       <e p="FashionClash.Customization.csproj" t="IncludeRecursive" />
       <e p="FashionClash.Customization.Infrastructure.csproj" t="IncludeRecursive" />
-      <e p="FashionClash.Customization.Tests.csproj" t="IncludeRecursive" />
+      <e p="FashionClash.Customization.Test.csproj" t="IncludeRecursive" />
       <e p="FashionClash.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />

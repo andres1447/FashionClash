@@ -1,4 +1,5 @@
 using Assets.Scripts.StickyTeam.FashionClash.Customization.Core;
+using StickyTeam.FashionClash.Customization.Core.Domain;
 using UnityEngine;
 using UnityEngine.UI;
 

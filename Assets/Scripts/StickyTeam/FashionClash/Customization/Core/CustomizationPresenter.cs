@@ -1,20 +1,22 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+using Assets.Scripts.StickyTeam.FashionClash.Customization.Core;
+using StickyTeam.FashionClash.Customization.Core.Actions;
+using StickyTeam.FashionClash.Customization.Core.Domain;
 using UniRx;
 
-namespace Assets.Scripts.StickyTeam.FashionClash.Customization.Core
+namespace StickyTeam.FashionClash.Customization.Core
 {
     public class CustomizationPresenter
     {
-        CustomizationView _view;
-        CategoryRepository _categoryRepository;
-        NavigatorGateway _navigator;
+        private readonly CustomizationView _view;
+        private readonly CategoryRepository _categoryRepository;
+        private readonly NavigatorGateway _navigator;
+        private readonly PurchaseItem _purchaseItem;
 
-        public CustomizationPresenter(CustomizationView view, NavigatorGateway navigator, CategoryRepository categoryRepository)
+        public CustomizationPresenter(CustomizationView view, NavigatorGateway navigator, CategoryRepository categoryRepository, PurchaseItem purchaseItem)
         {
             _categoryRepository = categoryRepository;
+            _purchaseItem = purchaseItem;
             _view = view;
             _navigator = navigator;
 
@@ -24,7 +26,6 @@ namespace Assets.Scripts.StickyTeam.FashionClash.Customization.Core
             _view.ItemSelected
                 .Where(IsItemUnlocked)
                 .SelectMany(AskPurchaseIfNotPurchased)
-                .Where(item => item.IsPurchased && item.IsUnlocked)
                 .Do(OnSelectItem)
                 .Subscribe();
             
@@ -51,14 +52,18 @@ namespace Assets.Scripts.StickyTeam.FashionClash.Customization.Core
 
         private IObservable<Item> AskPurchaseIfNotPurchased(Item item)
         {
-            return _view.ShowPurchaseConfirmation(item)
-                .Where(res => true)
-                .Select(_ => PurchaseItem(item));
+            return item.IsPurchased
+                ? Observable.Return(item)
+                : _view.ShowPurchaseConfirmation(item)
+                    .SelectMany(success => success ? PurchaseItem(item) : Observable.Empty<Item>());
         }
 
-        private Item PurchaseItem(Item item)
+        private IObservable<Item> PurchaseItem(Item item)
         {
-            return item;
+            return _purchaseItem
+                .Execute(item)
+                .Where(success => success)
+                .Select(_ => item);
         }
 
         private void OnSelectItem(Item item)

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.StickyTeam.FashionClash.Customization.Core;
+using StickyTeam.FashionClash.Customization.Core.Domain;
 using UniRx;
 using UnityEngine;
 

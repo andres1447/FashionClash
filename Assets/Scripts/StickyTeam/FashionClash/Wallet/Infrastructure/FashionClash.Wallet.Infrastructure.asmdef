@@ -1,7 +1,8 @@
 {
-    "name": "FashionClash.Customization",
+    "name": "FashionClash.Wallet.Infrastructure",
     "references": [
-        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:78394e88392814f448e3d28f461bd473"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

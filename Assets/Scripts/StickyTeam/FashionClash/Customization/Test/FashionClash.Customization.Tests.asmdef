@@ -1,10 +1,10 @@
 {
-    "name": "FashionClash.Customization.Tests",
+    "name": "FashionClash.Customization.Test",
     "references": [
-        "UnityEngine.TestRunner",
-        "UnityEditor.TestRunner",
-        "UniRx",
-        "FashionClash.Customization"
+        "GUID:27619889b8ba8c24980f49ee34dbb44a",
+        "GUID:0acc523941302664db1f4e527237feb3",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:3ac62fcac2184f54a86f1dc788a735fa"
     ],
     "includePlatforms": [
         "Editor"

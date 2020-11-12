@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using StickyTeam.FashionClash.Customization.Core.Domain;
 using UniRx;
 using UnityEngine;
 
