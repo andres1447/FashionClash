@@ -9,5 +9,6 @@ namespace Assets.Scripts.StickyTeam.FashionClash.Customization.Core
     public interface NavigatorGateway
     {
         void GoToNextStep();
+        void ShowPurchasePopup();
     }
 }

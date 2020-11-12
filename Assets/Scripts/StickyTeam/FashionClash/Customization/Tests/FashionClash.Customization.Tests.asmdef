@@ -3,7 +3,8 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "UniRx"
+        "UniRx",
+        "FashionClash.Customization"
     ],
     "includePlatforms": [
         "Editor"

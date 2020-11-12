@@ -10,5 +10,8 @@ namespace Assets.Scripts.StickyTeam.FashionClash.Customization.Core
     public interface Item
     {
         Sprite Sprite { get; }
+        bool CanChangeColor { get; }
+        bool IsPurchased { get; }
+        bool IsUnlocked { get; }
     }
 }
