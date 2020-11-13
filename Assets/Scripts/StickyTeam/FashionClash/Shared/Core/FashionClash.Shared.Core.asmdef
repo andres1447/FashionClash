@@ -1,9 +1,6 @@
 {
-    "name": "FashionClash.Wallet.Core",
-    "references": [
-        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
-        "GUID:4c3767cbf5685498eacae6cb18b8fb9f"
-    ],
+    "name": "FashionClash.Shared.Core",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

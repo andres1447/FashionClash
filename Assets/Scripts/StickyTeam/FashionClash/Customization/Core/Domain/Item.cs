@@ -8,6 +8,7 @@ namespace StickyTeam.FashionClash.Customization.Core.Domain
         bool CanChangeColor { get; }
         bool IsPurchased { get; }
         bool IsUnlocked { get; }
+        Price Price { get; }
 
         void Purchase();
     }

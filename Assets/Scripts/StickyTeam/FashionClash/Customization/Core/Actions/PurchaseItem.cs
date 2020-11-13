@@ -17,7 +17,7 @@ namespace StickyTeam.FashionClash.Customization.Core.Actions
 
         public virtual IObservable<bool> Execute(Item item)
         {
-            return _wallet.Pay(item)
+            return _wallet.Pay(item.Price)
                 .Where(success => success)
                 .Do(_ => ProcessPurchase(item));
         }

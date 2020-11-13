@@ -281,6 +281,7 @@
                     <e p="Category.cs" t="Include" />
                     <e p="CategoryRepository.cs" t="Include" />
                     <e p="Item.cs" t="Include" />
+                    <e p="Price.cs" t="Include" />
                     <e p="WalletGateway.cs" t="Include" />
                   </e>
                   <e p="FashionClash.Customization.asmdef" t="Include" />
@@ -301,6 +302,24 @@
                   <e p="FashionClash.Customization.Tests.asmdef" t="Include" />
                 </e>
               </e>
+              <e p="Shared" t="Include">
+                <e p="Core" t="Include">
+                  <e p="Currency.cs" t="Include" />
+                  <e p="FashionClash.Shared.Core.asmdef" t="Include" />
+                </e>
+              </e>
+              <e p="Wallet" t="Include">
+                <e p="Core" t="Include">
+                  <e p="Domain" t="Include">
+                    <e p="PlayerWallet.cs" t="Include" />
+                    <e p="WalletRepository.cs" t="Include" />
+                  </e>
+                  <e p="FashionClash.Wallet.Core.asmdef" t="Include" />
+                  <e p="Service" t="Include">
+                    <e p="WalletService.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
             </e>
           </e>
         </e>
@@ -308,7 +327,9 @@
       <e p="FashionClash.Customization.csproj" t="IncludeRecursive" />
       <e p="FashionClash.Customization.Infrastructure.csproj" t="IncludeRecursive" />
       <e p="FashionClash.Customization.Test.csproj" t="IncludeRecursive" />
+      <e p="FashionClash.Shared.Core.csproj" t="IncludeRecursive" />
       <e p="FashionClash.sln" t="IncludeFlat" />
+      <e p="FashionClash.Wallet.Core.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Temp/bin" t="ExcludeRecursive" />
