@@ -9,7 +9,6 @@ namespace StickyTeam.FashionClash.Customization.Core.Domain
         string Id { get; }
         Sprite Sprite { get; }
         int RequiredLevel { get; }
-        Category Category { get; }
         Price Price { get; }
         bool CanChangeColor { get; }
         ItemPart[] Parts { get; }

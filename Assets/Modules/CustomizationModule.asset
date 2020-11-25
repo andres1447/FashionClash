@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95194e05220546239052f15fdf06477b, type: 3}
   m_Name: CustomizationModule
   m_EditorClassIdentifier: 
-  _categoryRepository: {fileID: 11400000, guid: 56385dc046b5d40feb796529a340d7ce,
-    type: 2}
+  _categories:
+  - {fileID: 11400000, guid: a70f752dc88974161b8fe36db07f9ffe, type: 2}
+  - {fileID: 11400000, guid: 24168446f62864101801aea2ac7e82ee, type: 2}

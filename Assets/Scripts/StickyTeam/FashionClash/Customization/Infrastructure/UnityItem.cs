@@ -17,9 +17,6 @@ namespace StickyTeam.FashionClash.Customization.Infrastructure
 
         [SerializeField] private int _requiredLevel;
         public int RequiredLevel => _requiredLevel;
-
-        [SerializeField] public UnityCategory category;
-        public Category Category => category;
         
         [SerializeField] private ItemPrice _price;
         public Price Price => _price;

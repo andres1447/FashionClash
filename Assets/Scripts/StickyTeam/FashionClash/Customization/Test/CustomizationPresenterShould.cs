@@ -144,7 +144,6 @@ namespace StickyTeam.FashionClash.Customization.Test
         {
             var item = Substitute.For<Item>();
             var detail = Substitute.For<ItemDetail>();
-            detail.Parts.Returns(Substitute.For<ItemPart[]>());
             item.ItemDetail.Returns(detail);
             return item;
         }
