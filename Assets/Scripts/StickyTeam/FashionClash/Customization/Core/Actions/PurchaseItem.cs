@@ -1,5 +1,6 @@
 using System;
 using StickyTeam.FashionClash.Customization.Core.Domain;
+using StickyTeam.FashionClash.Customization.Core.Gateways;
 using UniRx;
 
 namespace StickyTeam.FashionClash.Customization.Core.Actions
@@ -7,24 +8,27 @@ namespace StickyTeam.FashionClash.Customization.Core.Actions
     public class PurchaseItem
     {
         private readonly WalletGateway _wallet;
+        private readonly PurchasedItemsGateway _purchasedItemsGateway;
         
         public PurchaseItem() { }
 
-        public PurchaseItem(WalletGateway wallet)
+        public PurchaseItem(WalletGateway wallet, PurchasedItemsGateway purchasedItemsGateway)
         {
             _wallet = wallet;
+            _purchasedItemsGateway = purchasedItemsGateway;
         }
 
-        public virtual IObservable<bool> Execute(Item item)
+        public virtual IObservable<bool> Execute(ItemDetail item)
         {
             return _wallet.Pay(item.Price)
                 .Where(success => success)
-                .Do(_ => ProcessPurchase(item));
+                .SelectMany(_ => ProcessPurchase(item)
+                .Select(__ => true));
         }
 
-        private void ProcessPurchase(Item item)
+        private IObservable<Unit> ProcessPurchase(ItemDetail item)
         {
-            item.Purchase();
+            return _purchasedItemsGateway.Add(item);
         }
     }
 }

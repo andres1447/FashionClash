@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67bdb7145793b4c20bc2e41f97ed9b8f, type: 3}
+  m_Name: Item2
+  m_EditorClassIdentifier: 
+  _id: head_2
+  _sprite: {fileID: 54122145024082791, guid: 8f0463aed11244b38956e69b94577f43, type: 3}
+  _requiredLevel: 0
+  category: {fileID: 11400000, guid: a70f752dc88974161b8fe36db07f9ffe, type: 2}
+  _price:
+    _currency: {fileID: 11400000, guid: bf4ffb023fa0747598098dda63148768, type: 2}
+    _amount: 0
+  _canChangeColor: 1
+  _parts:
+  - _category: Hair
+    _label: head_2

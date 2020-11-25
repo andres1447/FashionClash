@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Assets.Scripts.StickyTeam.FashionClash.Customization.Core;
+﻿using System.Collections.Generic;
 using NSubstitute;
 using NUnit.Framework;
 using StickyTeam.FashionClash.Customization.Core;
 using StickyTeam.FashionClash.Customization.Core.Actions;
 using StickyTeam.FashionClash.Customization.Core.Domain;
+using StickyTeam.FashionClash.Customization.Core.Gateways;
+using StickyTeam.FashionClash.Customization.Core.Presentation;
 using UniRx;
 
 namespace StickyTeam.FashionClash.Customization.Test
@@ -13,7 +13,6 @@ namespace StickyTeam.FashionClash.Customization.Test
     public class CustomizationPresenterShould
     {
         private CustomizationView _view;
-        private CustomizationPresenter _presenter;
         private NavigatorGateway _navigator;
         private CategoryRepository _categoryRepository;
 
@@ -22,24 +21,32 @@ namespace StickyTeam.FashionClash.Customization.Test
         private Subject<Unit> _complete = new Subject<Unit>();
         private Subject<Unit> _enabled = new Subject<Unit>();
         private Subject<bool> _confirmPurchase = new Subject<bool>();
+        
         private PurchaseItem _purchaseItem;
+        private GetItems _getItems;
 
         [SetUp]
         public void SetUp()
         {
-            SetUpView();
             _navigator = Substitute.For<NavigatorGateway>();
             _categoryRepository = Substitute.For<CategoryRepository>();
-            SetUpPurchaseAction();
-            _presenter = new CustomizationPresenter(_view, _navigator, _categoryRepository, _purchaseItem);
+            SetUpPurchaseItemAction();
+            SetUpView();
+            SetUpGetItemsAction();
+            _ = new CustomizationPresenter(_view, _navigator, _categoryRepository, _getItems, _purchaseItem);
         }
 
-        private void SetUpPurchaseAction()
+        private void SetUpGetItemsAction()
+        {
+            _getItems = Substitute.For<GetItems>();
+            _getItems.Execute(Arg.Any<Category>()).Returns(Observable.Return(new List<Item>()));
+        }
+
+        private void SetUpPurchaseItemAction()
         {
             _purchaseItem = Substitute.For<PurchaseItem>();
-            _purchaseItem.Execute(Arg.Any<Item>())
-                         .Returns(Observable.Return(true))
-                         .AndDoes(info => info.Arg<Item>().Purchase());
+            _purchaseItem.Execute(Arg.Any<ItemDetail>())
+                .Returns(Observable.Return(true));
         }
 
         private void SetUpView()
@@ -65,7 +72,7 @@ namespace StickyTeam.FashionClash.Customization.Test
         {
             var item = Given.AnItem().Locked();
             WhenSelectedItem(item);
-            _view.Received(1).ShowItemLocked(item);
+            _view.Received(1).ShowItemLocked(item.ItemDetail);
         }
 
         [Test]
@@ -82,7 +89,7 @@ namespace StickyTeam.FashionClash.Customization.Test
             var item = Given.AnItem().Unlocked().NotPurchased();
             WhenSelectedItem(item);
             WhenPurchaseConfirmed(true);
-            ThenEquipItem(item);
+            ThenEquipItem();
         }
 
         [Test]
@@ -91,7 +98,7 @@ namespace StickyTeam.FashionClash.Customization.Test
             var item = Given.AnItem().Unlocked().NotPurchased();
             WhenSelectedItem(item);
             WhenPurchaseConfirmed(false);
-            ThenDontEquipItem(item);
+            ThenDontEquipItem();
         }
 
         private void WhenPurchaseConfirmed(bool value)
@@ -104,17 +111,17 @@ namespace StickyTeam.FashionClash.Customization.Test
         {
             var item = Given.AnItem().Unlocked().Purchased();
             WhenSelectedItem(item);
-            ThenEquipItem(item);
+            ThenEquipItem();
         }
 
-        private void ThenEquipItem(Item item)
+        private void ThenEquipItem()
         {
-            _view.Received(1).EquipItem(item);
+            _view.Received(1).EquipItem(Arg.Any<IEnumerable<ItemPart>>());
         }
 
-        private void ThenDontEquipItem(Item item)
+        private void ThenDontEquipItem()
         {
-            _view.Received(0).EquipItem(item);
+            _view.Received(0).EquipItem(Arg.Any<IEnumerable<ItemPart>>());
         }
 
         [Test]
@@ -136,7 +143,9 @@ namespace StickyTeam.FashionClash.Customization.Test
         public static Item AnItem()
         {
             var item = Substitute.For<Item>();
-            item.When(x => x.Purchase()).Do(_ => item.IsPurchased.Returns(true));
+            var detail = Substitute.For<ItemDetail>();
+            detail.Parts.Returns(Substitute.For<ItemPart[]>());
+            item.ItemDetail.Returns(detail);
             return item;
         }
 

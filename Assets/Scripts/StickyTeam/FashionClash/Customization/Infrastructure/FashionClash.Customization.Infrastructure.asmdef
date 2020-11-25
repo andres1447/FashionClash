@@ -2,7 +2,12 @@
     "name": "FashionClash.Customization.Infrastructure",
     "references": [
         "GUID:560b04d1a97f54a4e82edc0cbbb69285",
-        "GUID:3ac62fcac2184f54a86f1dc788a735fa"
+        "GUID:3ac62fcac2184f54a86f1dc788a735fa",
+        "GUID:c3bcb504ad8254c00bf4567cf0a03afd",
+        "GUID:78394e88392814f448e3d28f461bd473",
+        "GUID:4c3767cbf5685498eacae6cb18b8fb9f",
+        "GUID:1f13db33c700e48b3b134b5354634c75",
+        "GUID:41524c21c95e5fe4dbc5b48bd21995a4"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

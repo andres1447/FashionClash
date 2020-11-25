@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Plugins" t="Include">
           <e p="UniRx" t="Include">
@@ -273,44 +274,99 @@
               <e p="Customization" t="Include">
                 <e p="Core" t="Include">
                   <e p="Actions" t="Include">
+                    <e p="GetItems.cs" t="Include" />
                     <e p="PurchaseItem.cs" t="Include" />
                   </e>
-                  <e p="CustomizationPresenter.cs" t="Include" />
-                  <e p="CustomizationView.cs" t="Include" />
                   <e p="Domain" t="Include">
                     <e p="Category.cs" t="Include" />
                     <e p="CategoryRepository.cs" t="Include" />
                     <e p="Item.cs" t="Include" />
+                    <e p="ItemDetail.cs" t="Include" />
                     <e p="Price.cs" t="Include" />
-                    <e p="WalletGateway.cs" t="Include" />
                   </e>
                   <e p="FashionClash.Customization.asmdef" t="Include" />
-                  <e p="NavigatorGateway.cs" t="Include" />
+                  <e p="Gateways" t="Include">
+                    <e p="NavigatorGateway.cs" t="Include" />
+                    <e p="PlayerProgressGateway.cs" t="Include" />
+                    <e p="PurchasedItemsGateway.cs" t="Include" />
+                    <e p="WalletGateway.cs" t="Include" />
+                  </e>
+                  <e p="Presentation" t="Include">
+                    <e p="CustomizationPresenter.cs" t="Include" />
+                    <e p="CustomizationView.cs" t="Include" />
+                  </e>
                 </e>
                 <e p="Infrastructure" t="Include">
+                  <e p="CustomizationModule.cs" t="Include" />
                   <e p="FashionClash.Customization.Infrastructure.asmdef" t="Include" />
-                  <e p="UnityConfirmModal.cs" t="Include" />
-                  <e p="UnityCustomizationView.cs" t="Include" />
-                  <e p="UnityItemPurchaseConfirmationModal.cs" t="Include" />
-                  <e p="UnitySelectableCategoryWidget.cs" t="Include" />
-                  <e p="UnitySelectableItemWidget.cs" t="Include" />
-                  <e p="UnitySelectableWidget.cs" t="Include" />
-                  <e p="UnitySelectableWidgetListExtensions.cs" t="Include" />
+                  <e p="Gateways" t="Include">
+                    <e p="NavigatorGatewayAdapter.cs" t="Include" />
+                    <e p="PlayerProgressGatewayAdapter.cs" t="Include" />
+                    <e p="PurchasedItemsGatewayAdapter.cs" t="Include" />
+                    <e p="WalletGatewayAdapter.cs" t="Include" />
+                  </e>
+                  <e p="Presentation" t="Include">
+                    <e p="Character" t="Include">
+                      <e p="UnityCharacterModel.cs" t="Include" />
+                    </e>
+                    <e p="UnityCustomizationView.cs" t="Include" />
+                    <e p="UnityItemPurchaseConfirmationModal.cs" t="Include" />
+                    <e p="UnitySelectableCategoryWidget.cs" t="Include" />
+                    <e p="UnitySelectableItemWidget.cs" t="Include" />
+                  </e>
+                  <e p="Repositories" t="Include">
+                    <e p="UnityCategoryRepository.cs" t="Include" />
+                  </e>
+                  <e p="UnityCategory.cs" t="Include" />
+                  <e p="UnityItem.cs" t="Include" />
                 </e>
                 <e p="Test" t="Include">
                   <e p="CustomizationPresenterShould.cs" t="Include" />
                   <e p="FashionClash.Customization.Tests.asmdef" t="Include" />
                 </e>
               </e>
+              <e p="Editor" t="Include">
+                <e p="Customization" t="Include">
+                  <e p="UnityCategoryEditor.cs" t="Include" />
+                </e>
+                <e p="EditorUtils.cs" t="Include" />
+                <e p="FashionClash.Editor.asmdef" t="Include" />
+              </e>
               <e p="Shared" t="Include">
                 <e p="Core" t="Include">
                   <e p="Currency.cs" t="Include" />
                   <e p="FashionClash.Shared.Core.asmdef" t="Include" />
                 </e>
+                <e p="Infrastructure" t="Include">
+                  <e p="FashionClash.Shared.Infrastructure.asmdef" t="Include" />
+                  <e p="SavedData" t="Include">
+                    <e p="InMemoryPlayerDataRepository.cs" t="Include" />
+                    <e p="PlayerData.cs" t="Include" />
+                    <e p="PlayerDataRepository.cs" t="Include" />
+                  </e>
+                  <e p="SharedModule.cs" t="Include" />
+                  <e p="UnityCurrency.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Show" t="Include">
+                <e p="Core" t="Include">
+                  <e p="FashionClash.Show.asmdef" t="Include" />
+                  <e p="Presentation" t="Include">
+                    <e p="FashionShowView.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="Infrastructure" t="Include">
+                  <e p="FashionClash.Show.Infrastructure.asmdef" t="Include" />
+                  <e p="FashionShowModule.cs" t="Include" />
+                  <e p="Presentation" t="Include">
+                    <e p="UnityFashionShowView.cs" t="Include" />
+                  </e>
+                </e>
               </e>
               <e p="Wallet" t="Include">
                 <e p="Core" t="Include">
                   <e p="Domain" t="Include">
+                    <e p="CurrencyAmount.cs" t="Include" />
                     <e p="PlayerWallet.cs" t="Include" />
                     <e p="WalletRepository.cs" t="Include" />
                   </e>
@@ -319,19 +375,85 @@
                     <e p="WalletService.cs" t="Include" />
                   </e>
                 </e>
+                <e p="Infrastructure" t="Include">
+                  <e p="FashionClash.Wallet.Infrastructure.asmdef" t="Include" />
+                  <e p="WalletRepositoryAdapter.cs" t="Include" />
+                </e>
+                <e p="Test" t="Include">
+                  <e p="FashionClash.Wallet.Test.asmdef" t="Include" />
+                  <e p="WalletRepositoryAdapterShould.cs" t="Include" />
+                  <e p="WalletServiceShould.cs" t="Include" />
+                </e>
+                <e p="WalletModule.cs" t="Include" />
               </e>
             </e>
+            <e p="Infrastructure" t="Include">
+              <e p="Container" t="Include">
+                <e p="Module.cs" t="Include" />
+                <e p="Registration.cs" t="Include" />
+                <e p="Resolver.cs" t="Include" />
+                <e p="UnityContainer.cs" t="Include" />
+                <e p="UnityModule.cs" t="Include" />
+              </e>
+              <e p="StickyTeam.Infrastructure.asmdef" t="Include" />
+              <e p="UnityConfirmModal.cs" t="Include" />
+              <e p="UnitySelectableWidget.cs" t="Include" />
+              <e p="UnitySelectableWidgetListExtensions.cs" t="Include" />
+            </e>
+            <e p="Test" t="Include">
+              <e p="ResolverShould.cs" t="Include" />
+              <e p="StickyTeam.Test.asmdef" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+            <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+            <e p="TMP_Bitmap.shader" t="Include" />
+            <e p="TMP_SDF Overlay.shader" t="Include" />
+            <e p="TMP_SDF SSD.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+            <e p="TMP_SDF-Mobile SSD.shader" t="Include" />
+            <e p="TMP_SDF-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface.shader" t="Include" />
+            <e p="TMP_SDF.shader" t="Include" />
+            <e p="TMP_Sprite.shader" t="Include" />
+            <e p="TMPro.cginc" t="Include" />
+            <e p="TMPro_Mobile.cginc" t="Include" />
+            <e p="TMPro_Properties.cginc" t="Include" />
+            <e p="TMPro_Surface.cginc" t="Include" />
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
       </e>
       <e p="FashionClash.Customization.csproj" t="IncludeRecursive" />
       <e p="FashionClash.Customization.Infrastructure.csproj" t="IncludeRecursive" />
       <e p="FashionClash.Customization.Test.csproj" t="IncludeRecursive" />
+      <e p="FashionClash.Editor.csproj" t="IncludeRecursive" />
       <e p="FashionClash.Shared.Core.csproj" t="IncludeRecursive" />
+      <e p="FashionClash.Shared.Infrastructure.csproj" t="IncludeRecursive" />
+      <e p="FashionClash.Show.csproj" t="IncludeRecursive" />
+      <e p="FashionClash.Show.Infrastructure.csproj" t="IncludeRecursive" />
       <e p="FashionClash.sln" t="IncludeFlat" />
       <e p="FashionClash.Wallet.Core.csproj" t="IncludeRecursive" />
+      <e p="FashionClash.Wallet.Infrastructure.csproj" t="IncludeRecursive" />
+      <e p="FashionClash.Wallet.Test.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
+      <e p="StickyTeam.Infrastructure.csproj" t="IncludeRecursive" />
+      <e p="StickyTeam.Test.csproj" t="IncludeRecursive" />
       <e p="Temp/bin" t="ExcludeRecursive" />
       <e p="UniRx.csproj" t="IncludeRecursive" />
     </e>

@@ -1,15 +1,20 @@
-﻿using UnityEngine;
-
 namespace StickyTeam.FashionClash.Customization.Core.Domain
 {
-    public interface Item
+    public class Item
     {
-        Sprite Sprite { get; }
-        bool CanChangeColor { get; }
-        bool IsPurchased { get; }
-        bool IsUnlocked { get; }
-        Price Price { get; }
+        public virtual ItemDetail ItemDetail { get; }
+        public virtual bool IsPurchased { get; set; }
+        public virtual bool CanPurchase { get; set; }
+        public virtual bool IsUnlocked { get; set; }
+        public virtual bool CanChangeColor => ItemDetail.CanChangeColor;
 
-        void Purchase();
+        public Item()
+        {
+        }
+
+        public Item(ItemDetail itemDetail)
+        {
+            ItemDetail = itemDetail;
+        }
     }
 }

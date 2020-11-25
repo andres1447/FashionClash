@@ -1,0 +1,19 @@
+{
+    "name": "FashionClash.Show.Infrastructure",
+    "references": [
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:d2df811cd150d4bebb0f4234826b26bd",
+        "GUID:4c3767cbf5685498eacae6cb18b8fb9f",
+        "GUID:1f13db33c700e48b3b134b5354634c75",
+        "GUID:c3bcb504ad8254c00bf4567cf0a03afd"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

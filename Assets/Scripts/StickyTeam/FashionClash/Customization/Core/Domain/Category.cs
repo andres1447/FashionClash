@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Assets.Scripts.StickyTeam.FashionClash.Customization.Core;
 using UnityEngine;
 
 namespace StickyTeam.FashionClash.Customization.Core.Domain
@@ -8,6 +7,6 @@ namespace StickyTeam.FashionClash.Customization.Core.Domain
     {
         string Id { get; }
         Sprite Sprite { get; }
-        List<Item> Items { get; }
+        List<ItemDetail> Items { get; }
     }
 }
