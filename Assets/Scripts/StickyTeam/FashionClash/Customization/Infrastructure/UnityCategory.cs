@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using StickyTeam.FashionClash.Customization.Core.Domain;
+using StickyTeam.Infrastructure.Attributes;
 using UnityEngine;
 
 namespace StickyTeam.FashionClash.Customization.Infrastructure
@@ -11,7 +12,7 @@ namespace StickyTeam.FashionClash.Customization.Infrastructure
         [SerializeField] private string _id;
         public string Id => _id;
         
-        [SerializeField] private Sprite _sprite;
+        [SerializeField, SpritePreview] private Sprite _sprite;
         public Sprite Sprite => _sprite;
 
         [SerializeField] public List<UnityItem> items;

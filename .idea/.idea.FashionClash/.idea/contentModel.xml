@@ -328,6 +328,7 @@
               <e p="Editor" t="Include">
                 <e p="EditorUtils.cs" t="Include" />
                 <e p="FashionClash.Editor.asmdef" t="Include" />
+                <e p="SpritePreviewPropertyDrawer.cs" t="Include" />
               </e>
               <e p="Shared" t="Include">
                 <e p="Core" t="Include">
@@ -385,6 +386,9 @@
               </e>
             </e>
             <e p="Infrastructure" t="Include">
+              <e p="Attributes" t="Include">
+                <e p="SpritePreviewAttribute.cs" t="Include" />
+              </e>
               <e p="Container" t="Include">
                 <e p="Module.cs" t="Include" />
                 <e p="Registration.cs" t="Include" />
